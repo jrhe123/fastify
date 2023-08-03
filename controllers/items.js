@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require("uuid");
-let items = require("../Items");
+let items = require("../dummy_data/Items");
 
 const getItems = (req, reply) => {
 	reply.send(items);
