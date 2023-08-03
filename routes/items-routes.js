@@ -4,7 +4,7 @@ const {
 	addItem,
 	deleteItem,
 	updateItem,
-} = require("../controllers/items");
+} = require("../controllers/items-controller");
 
 // Item schema
 const Item = {

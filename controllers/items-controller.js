@@ -2,6 +2,7 @@ const { v4: uuidv4 } = require("uuid");
 let items = require("../dummy_data/Items");
 
 const getItems = (req, reply) => {
+	// console.log("req.user: ", req.user);
 	reply.send(items);
 };
 
@@ -32,6 +33,12 @@ const deleteItem = (req, reply) => {
 const updateItem = (req, reply) => {
 	const { id } = req.params;
 	const { name } = req.body;
+
+	const index = items.findIndex((item) => item.id === id);
+	if (index === -1) {
+		reply.status(403).send({ msg: "not found" });
+	}
+
 	items = items.map((item) => (item.id === id ? { id, name } : item));
 
 	const item = items.find((item) => item.id === id);
