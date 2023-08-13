@@ -9,6 +9,10 @@ const getItems = (req, reply) => {
 const getItem = (req, reply) => {
 	const { id } = req.params;
 	const item = items.find((item) => item.id === id);
+	if (!item) {
+		reply.code(404).send()
+		return
+	}
 	reply.send(item);
 };
 

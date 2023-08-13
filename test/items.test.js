@@ -1,4 +1,4 @@
-const supertest = require("supertest");
+const request = require("supertest");
 const fastify = require("../server");
 
 afterAll(() => fastify.close());
@@ -6,7 +6,7 @@ afterAll(() => fastify.close());
 test("GET `/` items", async () => {
 	await fastify.ready();
 
-	const response = await supertest(fastify.server)
+	const response = await request(fastify.server)
 		.get("/items/1")
 		.expect(200)
 		.expect("Content-Type", "application/json; charset=utf-8");

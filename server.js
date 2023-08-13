@@ -2,7 +2,6 @@ const { PORT } = require("./constants");
 const { bindSwagger } = require("./helpers/swagger");
 const { guardMiddleware } = require("./middlewares/guard-middleware");
 const Fastify = require("fastify");
-const cors = require("@fastify/cors");
 
 // init fastify app
 const fastify = Fastify({
